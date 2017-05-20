@@ -6,7 +6,7 @@ Simple component for crossfading images. Just pass it a new src prop and enjoy t
 
 
 
-```
+```javascript
 <CrossfadeImage
   src={imageSrc}
   duration={500}
