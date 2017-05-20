@@ -1,10 +1,11 @@
 {
   "name": "react-crossfade-image",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Simple React component for crossfading images",
-  "main": "index.js",
+  "main": "index.es5.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "babel index.js --out-file index.es5.js",
     "start": "webpack-dev-server --open"
   },
   "repository": {
@@ -20,15 +21,17 @@
   "author": "Khang Lu <info@khang.lu> (https://khang.lu/)",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "rimraf": "^2.6.1",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   }
