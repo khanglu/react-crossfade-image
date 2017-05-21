@@ -6,7 +6,7 @@ export default class CrossfadeImage extends Component {
     super(props);
     this.state = {
       topSrc: props.src,
-      topOpacity: 1,
+      bottomOpacity: 0,
       bottomSrc: props.src
     };
   }
@@ -14,33 +14,49 @@ export default class CrossfadeImage extends Component {
     const oldSrc = this.state.topSrc;
     const newSrc = newProps.src;
     if (newSrc !== oldSrc) {
-      this.setState({ bottomSrc: newSrc, topOpacity: 0 }, () => {
-        if (!this.timeout) clearTimeout(this.timeout);
-        this.timeout = setTimeout(
-          () =>
-            this.setState({
-              topSrc: newSrc,
-              topOpacity: 1
-            }),
-          this.props.duration + this.props.delay
-        );
-      });
+      // Reset the component everytime we receive new prop, to
+      // cancel out any animation that's still going on
+      this.setState({ bottomSrc: false, topSrc: false }, () =>
+        this.setState(
+          // Opacity less than 1 takes precendence in stacking order
+          { bottomSrc: oldSrc, topSrc: newSrc, bottomOpacity: 0.99 },
+          () => {
+            // One of the few times setTimeout does wonders, this is for
+            // getting fade out transition without css keyframe
+            if (!this.timeout) clearTimeout(this.timeout);
+            this.timeout = setTimeout(
+              () => this.setState({ bottomOpacity: 0 }),
+              10
+            );
+          }
+        )
+      );
     }
   }
   render() {
     const { duration, timingFunction, delay, style } = this.props;
-    const { topSrc, topOpacity, bottomSrc } = this.state;
+    const { topSrc, bottomOpacity, bottomSrc } = this.state;
     return (
-      <div style={style}>
-        <img
-          style={{
-            opacity: topOpacity,
-            position: "absolute",
-            transition: `opacity ${duration / 1000}s ${timingFunction} ${delay / 1000}s`
-          }}
-          src={topSrc}
-        />
-        <img src={bottomSrc} />
+      <div style={{ position: "relative" }}>
+        {topSrc &&
+          <img
+            style={{
+              ...style,
+              ...{ position: "absolute" }
+            }}
+            src={topSrc}
+          />}
+        {bottomSrc &&
+          <img
+            style={{
+              ...style,
+              ...{
+                opacity: bottomOpacity,
+                transition: `opacity ${duration / 1000}s ${timingFunction} ${delay / 1000}s`
+              }
+            }}
+            src={bottomSrc}
+          />}
       </div>
     );
   }
@@ -55,7 +71,7 @@ CrossfadeImage.propTypes = {
 };
 
 CrossfadeImage.defaultProps = {
-  duration: 300,
+  duration: 500,
   timingFunction: "ease",
   delay: 0
 };

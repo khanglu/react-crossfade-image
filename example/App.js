@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import CrossfadeImage from "../";
+import CrossfadeImage from "../index.js";
 
 const images = [
   "http://a5.mzstatic.com/us/r30/Purple5/v4/c1/2f/4c/c12f4cba-1d9a-f6bf-2240-04085d3470ec/icon175x175.jpeg",
@@ -28,7 +28,7 @@ class App extends Component {
       <div>
         <CrossfadeImage
           src={images[this.state.imageIndex]}
-          duration={500}
+          duration={1000}
           timingFunction={"ease-out"}
         />
         <button onClick={this.changeImage}>

@@ -1,6 +1,6 @@
 {
   "name": "react-crossfade-image",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple React component for crossfading images",
   "main": "index.es5.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "rimraf": "^2.6.1",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"

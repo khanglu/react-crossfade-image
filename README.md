@@ -32,7 +32,7 @@ Support all CSS timing functions - default to 'ease'
 Duration of the delay before fading, in ms - default to 0
 
 ### style
-Styling for the image wrapper
+Custom styling for the image - e.g. maxWidth: '100%', maxHeight: '100%' for responsive image scaling
 
 ## License
 MIT
