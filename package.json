@@ -1,6 +1,6 @@
 {
   "name": "react-crossfade-image",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simple React component for crossfading images",
   "main": "index.es5.js",
   "scripts": {
@@ -22,8 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react": "^15.5.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
