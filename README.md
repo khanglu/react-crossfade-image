@@ -4,7 +4,12 @@ Simple component for crossfading images. Just pass it a new src prop and enjoy t
 
 ## Usage
 
+```javascript
+npm install react-crossfade-image
+```
+Clone and run `npm start` for demo.
 
+Sample component:
 
 ```javascript
 <CrossfadeImage
@@ -14,8 +19,6 @@ Simple component for crossfading images. Just pass it a new src prop and enjoy t
   delay={200}
 />
 ```
-
-Clone and run `npm start` for demo.
 
 ## Props
 
