@@ -26,7 +26,7 @@ export default class CrossfadeImage extends Component {
             if (!this.timeout) clearTimeout(this.timeout);
             this.timeout = setTimeout(
               () => this.setState({ bottomOpacity: 0 }),
-              10
+              20
             );
           }
         )
