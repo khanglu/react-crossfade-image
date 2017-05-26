@@ -1,6 +1,10 @@
 # react-crossfade-image
 
+![](https://img.shields.io/npm/v/react-crossfade-image.svg)
+
 Simple component for crossfading images. Just pass it a new src prop and enjoy the fade!
+
+![alt react-crossfade-image-example](https://media.giphy.com/media/xUPGcHDL5FJaQXz2EM/giphy.gif)
 
 ## Usage
 
@@ -12,12 +16,7 @@ Clone and run `npm start` for demo.
 Sample component:
 
 ```javascript
-<CrossfadeImage
-  src={imageSrc}
-  duration={500}
-  timingFunction={"ease-out"}
-  delay={200}
-/>
+<CrossfadeImage src={imageSrc} />
 ```
 
 ## Props
