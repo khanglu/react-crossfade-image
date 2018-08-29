@@ -24,6 +24,9 @@ Sample component:
 ### src
 Image source as string - required
 
+### alt
+Alternative text description of the image - optional
+
 ### duration
 Duration of the fade, in ms - default to 300
 
