@@ -6,20 +6,30 @@ export default class CrossfadeImage extends Component {
     super(props);
     this.state = {
       topSrc: props.src,
+      topAlt: props.alt,
       bottomOpacity: 0,
-      bottomSrc: props.src
+      bottomSrc: props.src,
+      bottomAlt: props.alt
     };
   }
   componentWillReceiveProps(newProps) {
     const oldSrc = this.state.topSrc;
+    const oldAlt = this.state.topAlt;
     const newSrc = newProps.src;
+    const newAlt = newProps.alt;
     if (newSrc !== oldSrc) {
       // Reset the component everytime we receive new prop, to
       // cancel out any animation that's still going on
       this.setState({ bottomSrc: false, topSrc: false }, () =>
         this.setState(
           // Opacity less than 1 takes precendence in stacking order
-          { bottomSrc: oldSrc, topSrc: newSrc, bottomOpacity: 0.99 },
+          {
+            bottomSrc: oldSrc,
+            bottomAlt: oldAlt,
+            topSrc: newSrc,
+            topAlt: newAlt,
+            bottomOpacity: 0.99
+          },
           () => {
             // One of the few times setTimeout does wonders, this is for
             // getting fade out transition without css keyframe
@@ -34,15 +44,15 @@ export default class CrossfadeImage extends Component {
     }
   }
   render() {
-    const { duration, timingFunction, delay, style, alt } = this.props;
-    const { topSrc, bottomOpacity, bottomSrc } = this.state;
+    const { duration, timingFunction, delay, style } = this.props;
+    const { topSrc, topAlt, bottomOpacity, bottomSrc, bottomAlt  } = this.state;
     return (
       <div style={{ ...defaultStyle, ...{ position: "relative" } }}>
         {topSrc &&
           <img
             style={{ ...defaultStyle, ...style, ...{ position: "absolute" } }}
             src={topSrc}
-            alt={alt}
+            alt={topAlt}
           />}
         {bottomSrc &&
           <img
@@ -55,7 +65,7 @@ export default class CrossfadeImage extends Component {
               }
             }}
             src={bottomSrc}
-            alt={alt}
+            alt={bottomAlt}
           />}
       </div>
     );
