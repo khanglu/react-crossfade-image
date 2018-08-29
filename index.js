@@ -55,6 +55,7 @@ export default class CrossfadeImage extends Component {
               }
             }}
             src={bottomSrc}
+            alt={alt}
           />}
       </div>
     );
