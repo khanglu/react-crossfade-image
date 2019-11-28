@@ -4,8 +4,7 @@ import CrossfadeImage from "../index.js";
 
 const images = [
   "http://a5.mzstatic.com/us/r30/Purple5/v4/c1/2f/4c/c12f4cba-1d9a-f6bf-2240-04085d3470ec/icon175x175.jpeg",
-  "http://is2.mzstatic.com/image/thumb/Purple122/v4/d2/36/28/d23628e5-c9bf-d0fb-104f-61fa52976ff5/source/175x175bb.jpg",
-  "http://a4.mzstatic.com/us/r30/Purple62/v4/1f/8d/f9/1f8df910-8ec7-3b8e-0104-d44e869f4d65/icon175x175.jpeg"
+  "http://is2.mzstatic.com/image/thumb/Purple122/v4/d2/36/28/d23628e5-c9bf-d0fb-104f-61fa52976ff5/source/175x175bb.jpg"
 ];
 
 class App extends Component {
@@ -31,9 +30,7 @@ class App extends Component {
           duration={1000}
           timingFunction={"ease-out"}
         />
-        <button onClick={this.changeImage}>
-          Change Image
-        </button>
+        <button onClick={this.changeImage}>Change Image</button>
       </div>
     );
   }
