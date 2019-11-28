@@ -36,6 +36,10 @@ Duration of the delay before fading, in ms - default to 0
 ### style
 Custom styling for the image - default to { maxWidth: '100%', maxHeight: '100%' } for responsive image scaling
 
+### containerClass
+
+Custom class string for the container element - default to 'CrossfadeImage'
+
 ## License
 MIT
 
